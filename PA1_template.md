@@ -6,7 +6,6 @@ output:
 ---
 
 
-
 ## Loading and preprocessing the data
 
 ```r
@@ -40,7 +39,7 @@ qplot(unique(data$monthday),as.vector(total), show.legend = FALSE)+geom_bar(stat
   theme(plot.title = element_text(hjust = 0.5))
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-2-1.png)<!-- -->
+![](PA1_template_files/figure-html/perday-1.png)<!-- -->
 
 ```r
   total<-with(data,tapply(steps, monthday, sum))
@@ -60,7 +59,7 @@ plot(unique(data$interval),averageperinterval[,2],type="l",col="red",
        ylab = "Average Steps Taken")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
+![](PA1_template_files/figure-html/perinterval-1.png)<!-- -->
 
 ```r
 maximum<-averageperinterval[which.max(averageperinterval$steps),1]
@@ -95,7 +94,7 @@ qplot(unique(newdata$monthday),as.vector(total), show.legend = FALSE)+geom_bar(s
   theme(plot.title = element_text(hjust = 0.5))
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
+![](PA1_template_files/figure-html/perdaynoNAs-1.png)<!-- -->
 
 ```r
   newmeansteps<-mean(total,na.rm=TRUE)
@@ -122,5 +121,5 @@ averageperintervalandday<-aggregate(steps ~ interval+day, data = newdata, FUN = 
 xyplot(steps~interval|day, data=averageperintervalandday, type="l",  layout = c(1,2),  ylab="Average Number of Steps per Interval", xlab="Interval")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
+![](PA1_template_files/figure-html/weekend-1.png)<!-- -->
 
